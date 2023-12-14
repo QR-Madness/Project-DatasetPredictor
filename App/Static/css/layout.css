@@ -13,11 +13,14 @@ body {
 
 #content {
     display: flex;
+    height: fit-content;
+    overflow: hidden;
 }
 
 #main-content {
     flex: 1;
     padding: 20px;
+    overflow: auto;
 }
 
 #sidebar {
@@ -31,64 +34,28 @@ body {
     color: white;
     padding: 10px;
     text-align: center;
-    position: fixed;
     bottom: 0;
-    width: 100%;
-}
-#sidebar {
-    background-color: #f4f4f4;
-    width: 200px;
-    padding: 20px;
-    overflow: hidden; /* Hide overflow content */
-    transition: width 0.3s; /* Add transition for width changes */
+    left:0;
+    right: 0;
 }
 
-#menu-toggle {
-    cursor: pointer;
-    display: none;
+#navbar {
+    display: inline-flex;
+    flex-direction: row;
+    padding: 1vh 2vw;
+    gap: 3vw;
+    transition: width 0.3s;
 }
 
-#menu-toggle-label {
-    display: none;
-}
-
-@media screen and (max-width: 768px) {
-    #sidebar {
-        width: 0; /* Collapse the sidebar by default on smaller screens */
-    }
-
-    #menu-toggle-label {
-        display: block;
-        cursor: pointer;
-    }
-
-    #menu-toggle:checked + #sidebar {
-        width: 200px; /* Expand sidebar when checkbox is checked */
-    }
-
-    #menu-toggle:checked + #sidebar + #menu-toggle-label {
-        display: none;
-    }
-
-    #menu-toggle:not(:checked) + #menu-toggle-label {
-        display: block;
-    }
-}
-#sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-#sidebar li {
-    margin-bottom: 10px;
-}
-
-#sidebar a {
+#navbar a {
+    color: white;
     text-decoration: none;
-    color: #333;
     font-weight: bold;
+    padding: 0.5vh 1vw;
+    border-radius: 1rem;
 }
 
-#sidebar a:hover {
-    color: #007bff;
+#navbar a:hover {
+    background-color: white;
+    color: black;
 }

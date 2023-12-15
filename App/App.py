@@ -2,6 +2,7 @@ from flask import Flask
 from argparse import ArgumentParser
 from argparse import BooleanOptionalAction
 from CoreBlueprint import CoreBlueprint
+from APIBlueprint import ApiBlueprint
 
 arguments = ArgumentParser("COMP309 Police Dataset Predictor")
 arguments.add_argument(
@@ -33,5 +34,6 @@ if __name__ == "__main__":
     server_app = assemble_app()
     # blueprints
     server_app.register_blueprint(CoreBlueprint)
+    server_app.register_blueprint(ApiBlueprint, url_prefix="/api")
     # start listening
     server_app.run()

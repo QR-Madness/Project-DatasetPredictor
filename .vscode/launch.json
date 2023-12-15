@@ -1,20 +1,20 @@
 {
     "configurations": [
         {
-            "name": "Python: Flask",
+            "name": "Start",
             "type": "python",
             "request": "launch",
-            "module": "flask",
-            "env": {
-                "FLASK_APP": "App/App.py",
-                "FLASK_DEBUG": "1"
-            },
-            "args": [
-                "run",
-                "--no-debugger",
-                "--no-reload"
-            ],
-            "jinja": true,
+            "program": "App/App.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Start w/o Debug",
+            "type": "python",
+            "request": "launch",
+            "program": "App/App.py",
+            "args": ["-dd"],
+            "console": "integratedTerminal",
             "justMyCode": true
         }
     ]

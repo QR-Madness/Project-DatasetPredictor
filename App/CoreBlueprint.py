@@ -20,11 +20,3 @@ def page_index():
 @CoreBlueprint.route("/dashboard")
 def page_dashboard():
     return render_template("Dashboard.j2.html")
-
-
-@CoreBlueprint.route("/data-stats")
-def page_component_data_stats():
-    thefts = BicycleThefts()
-    # render stats into an HTML element
-    stats_info_element = thefts.get_description().to_html()
-    return jsonify(html=stats_info_element)

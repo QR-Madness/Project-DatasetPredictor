@@ -1,8 +1,9 @@
 from flask import Flask
 from argparse import ArgumentParser
 from argparse import BooleanOptionalAction
-from CoreBlueprint import CoreBlueprint
+
 from APIBlueprint import ApiBlueprint
+from CoreBlueprint import CoreBlueprint
 
 arguments = ArgumentParser("COMP309 Police Dataset Predictor")
 arguments.add_argument(

@@ -6,9 +6,19 @@
 {% block content %}
 <h2>Dashboard - Theft Modeling Data</h2>
 <div>
-    <h3>Dataset Description</h3>
-    <button onclick="fetchDataElement('data-stats-container', '/api/data-stats')">Get Data Info</button>
+    <h3>Raw Data Description</h3>
+    <button onclick="fetchDataElement('data-stats-container', '/api/data-stats')">Get Data</button>
     <div id="data-stats-container" class="output-container">
+    </div>
+
+    <h3>Model Accuracy</h3>
+    <button onclick="fetchDataElement('model-performance-container', '/api/model-performance')">Get Data</button>
+    <div id="model-performance-container" class="output-container">
+    </div>
+
+    <h3>Model Predictions</h3>
+    <button onclick="fetchDataElement('model-predictions-container', '/api/model-predictions')">Get Data</button>
+    <div id="model-predictions-container" class="output-container">
     </div>
 </div>
 <h3>...</h3>

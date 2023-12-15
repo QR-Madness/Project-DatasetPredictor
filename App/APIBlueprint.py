@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from flask import render_template
-from Script.BicycleThefts import BicycleThefts
+from Models.BicycleThefts import BicycleTheftsPredictor
 
 # App Blueprint
 ApiBlueprint = Blueprint(
@@ -10,6 +10,7 @@ ApiBlueprint = Blueprint(
     static_url_path="/",
     template_folder="Templates/",
 )
+# TODO Save theft model in request dict for performance optimization
 
 
 @ApiBlueprint.route("/")
@@ -19,7 +20,23 @@ def page_index():
 
 @ApiBlueprint.route("/data-stats")
 def page_component_data_stats():
-    thefts = BicycleThefts()
+    thefts = BicycleTheftsPredictor()
     # render stats into an HTML element
-    stats_info_element = thefts.get_description().to_html()
-    return jsonify(html=stats_info_element)
+    stats_table = thefts.get_description().to_html()
+    return jsonify(html=stats_table)
+
+
+@ApiBlueprint.route("/model-performance")
+def page_component_model_performance():
+    thefts = BicycleTheftsPredictor()
+    # render stats into an HTML element
+    performance_table = thefts.get_model_info().to_html()
+    return jsonify(html=performance_table)
+
+
+@ApiBlueprint.route("/model-predictions")
+def page_component_model_predictions():
+    thefts = BicycleTheftsPredictor()
+    # render stats into an HTML element
+    predictions_table = thefts.get_predictions().to_html()
+    return jsonify(html=predictions_table)

@@ -1,6 +1,5 @@
 from flask import Blueprint, jsonify
 from flask import render_template
-from Script.BicycleThefts import BicycleThefts
 
 # App Blueprint
 CoreBlueprint = Blueprint(
